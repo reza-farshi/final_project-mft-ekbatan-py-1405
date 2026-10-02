@@ -5,6 +5,9 @@ main_list = []
 name_list = []
 serial_list = []
 brand_list = []
+kahesh_list = []
+afzayesh_list = []
+
 last_serial_elc = 10001110
 last_serial_lavazem = 20001110
 last_serial_pooshak = 30001110
@@ -335,7 +338,7 @@ while True :
                         
                         match main_menu :
                             case "1" :  
-                                menu = input("1.mojodi bar asase brand \n2.mojodi kol \n ")
+                                menu = input("1.mojodi bar asase brand \n2.mojodi kol \n3.liste afzayesh \n4.liste kahesh \n5.back \n ")
                                 match menu :
                                     case "1" :
                                         search = input("lotfan brande morde nazare khod ra vared namayid :\n")
@@ -353,6 +356,10 @@ while True :
                                             
                                     case "2" :
                                         print(main_list)  
+                                    case "3" :
+                                        print(afzayesh_list)
+                                    case "4" :
+                                        print(kahesh_list)
                                     case _ :
                                         break
                                 break
@@ -399,6 +406,17 @@ while True :
                                         old_num = int(main_list[x][4][0])
                                         new_num = old_num + up_num
                                         main_list[x][4][0] = new_num
+                                        afzayesh = []
+                                        afzayesh.append(main_list[x][0])
+                                        afzayesh.append(main_list[x][1])
+                                        afzayesh.append(main_list[x][2])
+                                        afzayesh.append(main_list[x][3])
+                                        afzayesh.append(up_num)
+                                        afzayesh.append(main_list[x][5])
+                                        afzayesh.append(main_list[x][6])
+
+                                        afzayesh_list.append(afzayesh)
+
                                         break
                                     case "3" :
                                         print("mojoodie feeli : " , main_list[x][4][0])
@@ -406,7 +424,18 @@ while True :
                                         old_num = int(main_list[x][4][0])
                                         new_num = old_num - low_num
                                         main_list[x][4][0] = new_num
-                                        if new_num < (0.2 * old_num) :
+                                        kahesh = []
+                                        kahesh.append(main_list[x][0])
+                                        kahesh.append(main_list[x][1])
+                                        kahesh.append(main_list[x][2])
+                                        kahesh.append(main_list[x][3])
+                                        kahesh.append(up_num)
+                                        kahesh.append(main_list[x][5])
+                                        kahesh.append(main_list[x][6])
+
+                                        kahesh_list.append(kahesh)
+
+                                        if new_num < 5 :
                                             print("mojodie kala be nahie khatar nazdik shode ast")
                                         break
                                     case "4" :
@@ -422,8 +451,10 @@ while True :
                                 exx = 1
                                 break
                     
-            case _ :
+            case "3" :
                 ex = 1
                 break
+            case _ :
+                continue
 
 
